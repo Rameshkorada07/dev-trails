@@ -232,6 +232,194 @@ This improves trust, usability, and overall product experience.
 
 ---
 
+## Adversarial Defense & Anti-Spoofing Strategy
+---
+
+GigGuard is designed to operate in adversarial environments where coordinated fraud attempts, such as GPS spoofing, can compromise system integrity.
+
+---
+
+### Core Principle
+
+GigGuard does not rely on GPS as a single source of truth.  
+Instead, it models reality as consistency across multiple independent signals over time.
+
+A genuine event produces consistent signals across motion, device, network, and environment.  
+A spoofed event cannot maintain this consistency.
+
+---
+
+### 1. Differentiation: Genuine vs Spoofed Claims
+
+GigGuard uses a Multi-Modal Consistency Engine (MMCE) to evaluate claims across multiple dimensions.
+
+#### A. Temporal Consistency
+
+Real users exhibit continuous and natural movement patterns, while spoofed users often show discontinuous or static behavior.
+
+Signals analyzed:
+
+- speed variance  
+- acceleration noise  
+- path continuity  
+
+---
+
+#### B. Sensor Fusion Validation
+
+GPS data is validated against physical device sensors:
+
+- accelerometer for movement detection  
+- gyroscope for orientation shifts  
+- barometer for environmental pressure  
+
+If GPS indicates movement but sensors indicate stillness, the claim is flagged as anomalous.
+
+---
+
+#### C. Network and Environment Cross-Verification
+
+Location claims are validated using infrastructure-level signals:
+
+- cell tower triangulation  
+- WiFi density patterns (indoor vs outdoor)  
+- IP classification (mobile vs residential)  
+- weather API consistency  
+
+Example:
+
+A claim of severe weather combined with stable network conditions and no environmental variation is treated as suspicious.
+
+---
+
+#### D. Behavioral Modeling
+
+Machine learning models analyze historical user behavior, including:
+
+- delivery routes  
+- working hours  
+- movement patterns  
+
+Fraud indicators include:
+
+- sudden deviation from long-term behavior  
+- unrealistic or inconsistent activity patterns  
+
+---
+
+#### E. Graph-Based Fraud Detection
+
+GigGuard detects coordinated fraud using group-level analysis:
+
+- builds interaction graphs across users  
+- identifies synchronized anomalies  
+- detects clusters of correlated claims  
+
+Coordinated fraud rings typically show high correlation across multiple users within a short time window.
+
+---
+
+### 2. Data Beyond GPS
+
+GigGuard evaluates multiple data sources to ensure robust validation.
+
+Device signals:
+
+- accelerometer, gyroscope, barometer  
+- battery usage patterns  
+- mock location detection  
+
+Network signals:
+
+- cell tower data  
+- IP and ASN classification  
+- WiFi scan patterns  
+
+Environmental signals:
+
+- weather APIs  
+- signal degradation patterns  
+
+Behavioral data:
+
+- historical routes and sessions  
+- time-based activity patterns  
+
+Graph data:
+
+- cross-user correlations  
+- cluster anomaly detection  
+
+No single signal is trusted in isolation.
+
+---
+
+### 3. Decision Engine
+
+Each claim is evaluated using a composite risk score based on:
+
+- temporal inconsistency  
+- sensor mismatch  
+- network anomaly  
+- behavioral deviation  
+- graph correlation  
+
+Outcome:
+
+- low risk → instant payout  
+- medium risk → soft verification  
+- high risk → delayed or manual review  
+
+---
+
+### 4. UX Balance
+
+GigGuard ensures that fraud prevention does not negatively impact genuine workers.
+
+#### A. Soft Verification
+
+- claims are not immediately rejected  
+- background validation continues without interrupting the user  
+
+---
+
+#### B. Confidence-Based Processing
+
+- high-confidence claims are processed instantly  
+- medium-confidence claims may be slightly delayed  
+- low-confidence claims undergo additional checks  
+
+---
+
+#### C. Failure Tolerance
+
+The system accounts for real-world conditions such as:
+
+- network drops during bad weather  
+- temporary sensor inconsistencies  
+- delayed signal updates  
+
+Validation is performed over time windows rather than relying on single-point checks.
+
+---
+
+#### D. Transparency
+
+- users are informed when verification is in progress  
+- no hidden penalties or silent rejections  
+- clear and simple status updates in the dashboard  
+
+---
+
+### Final Insight
+
+GigGuard does not verify a single signal.  
+It verifies consistency across independent systems, over time, and across users.
+
+This makes large-scale spoofing attacks technically difficult and economically unviable.
+
+---
+
 ## Core AI Components
 ---
 
